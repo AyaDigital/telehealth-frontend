@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  telehealth-frontend:
+    image: telehealth-frontend:latest
+    container_name: telehealth-frontend
+    environment:
+      REACT_APP_BACKEND_URL: ${REACT_APP_BACKEND_URL}
+      REACT_APP_SET_AUTH: ${REACT_APP_SET_AUTH}
+      REACT_APP_KEYCLOAK_URL: ${REACT_APP_KEYCLOAK_URL}
+    ports:
+      - "8083:80"

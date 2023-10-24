@@ -1,0 +1,139 @@
+.header-layout {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  z-index: 10000;
+
+  @mixin flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  & > .header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    border-bottom: 1px solid #e9e9e6;
+    border-top: 3px solid #ededed;
+    justify-content: space-between;
+
+    & > .logo {
+      margin: 10px 0 0 15px;
+    }
+
+    & > .headerRight {
+      @include flex-row();
+      margin-left: 10vw;
+      align-items: center;
+      padding: 0px 10px 0px 0px;
+      width: 100%;
+      justify-content: space-between;
+
+      & > .userBlock {
+        @include flex-row();
+        align-items: center;
+        padding: 0px 10px 0px 10px;
+        position: relative;
+        margin: 3px 17px 0 0;
+
+        & > .userLink {
+          @include flex-row();
+          width: 100%;
+          align-items: center;
+          text-decoration: none;
+          cursor: pointer;
+          z-index: 221;
+
+          & > .profile-avatar {
+            width: 35px;
+            height: 35px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & > img {
+              height: 100%;
+              width: auto;
+              object-fit: contain;
+            }
+          }
+
+          & > .userInfo {
+            margin: -3px 25px 0 10px;
+
+            & > .userRole {
+              color: #acacac;
+              font-size: 11.2px;
+              font-size: 0.7rem;
+            }
+          }
+          & > .custom-caret {
+            color: #001;
+            font-size: 16px;
+            font-weight: 700;
+
+            & > div > svg {
+              transform: rotate(90deg);
+            }
+          }
+          &.open {
+            & > .custom-caret {
+              & > div > svg {
+                transform: rotate(270deg);
+              }
+            }
+          }
+        }
+
+        & > .dropdown-menu {
+          position: absolute;
+          inset: 0px 0px auto auto;
+          border: none;
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-sizing: content-box;
+          left: -11px !important;
+          padding: 45px 10px 0;
+          top: -10px !important;
+          transform: none !important;
+          width: 100%;
+          min-width: 0;
+          z-index: 92;
+          display: none;
+
+          & > ul > .divider {
+            height: 1px;
+            margin: 9px 0;
+            overflow: hidden;
+            background-color: #e5e5e5;
+          }
+
+          & > ul > li > a {
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            border-radius: 2px;
+            color: #7d7d7d;
+            line-height: 20.8px;
+            line-height: 1.3rem;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-size: 0.75rem;
+            text-decoration: none;
+
+            & > i {
+              margin-right: 20px;
+            }
+          }
+
+          &.open {
+            background-color: white;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

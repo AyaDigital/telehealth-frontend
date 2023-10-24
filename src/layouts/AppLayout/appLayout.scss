@@ -1,0 +1,40 @@
+.app-layout {
+  padding: 0px 0px 0px 0px;
+  height: 100%;
+
+  .app-layout-content {
+    padding: 60px 0px 0px 0px;
+    max-width: none;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    &.sidebar-expanded {
+      & > div > .doctors-layout {
+        @media screen and (max-width: 1300px) {
+          grid-template-columns: none;
+          grid-template-rows: 1fr 3fr;
+          row-gap: 32px;
+          place-content: center;
+          font-family: 'Manrope';
+
+          &.no-day-selected {
+            grid-template-rows: 842px 0%;
+          }
+        }
+      }
+
+      & > div > .patient-account-layout,
+      & > div > .patient-account-edit-layout,
+      & > div > .account-edit-layout,
+      & > div > .contact-layout,
+      & > div > .about-layout,
+      & > div > .one-doctor-page-layout,
+      & > div > .appointment-layout {
+        @media screen and (max-width: 1300px) {
+          padding-left: 0px;
+        }
+      }
+    }
+  }
+}
