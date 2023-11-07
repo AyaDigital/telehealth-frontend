@@ -7,6 +7,7 @@ import useParticipantsContext from '../../hooks/useParticipantsContext/usePartic
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
 import useSelectedParticipant from '../VideoProvider/useSelectedParticipant/useSelectedParticipant';
 import useScreenShareParticipant from '../../hooks/useScreenShareParticipant/useScreenShareParticipant';
+import { useAppState } from '../../state';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,6 +45,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function ParticipantList() {
   const classes = useStyles();
   const { room } = useVideoContext();
+  const { name } = useAppState();
+
   const localParticipant = room!.localParticipant;
   const { speakerViewParticipants } = useParticipantsContext();
   const [selectedParticipant, setSelectedParticipant] = useSelectedParticipant();
@@ -61,7 +64,7 @@ export default function ParticipantList() {
     >
       <div className={classes.scrollContainer}>
         <div className={classes.innerScrollContainer}>
-          <Participant participant={localParticipant} roomName={room!.name} isLocalParticipant={true} />
+          <Participant participant={localParticipant} roomName={room!.name} isLocalParticipant={true} name={name} />
           {speakerViewParticipants.map(participant => {
             const isSelected = participant === selectedParticipant;
             const hideParticipant =
@@ -70,6 +73,7 @@ export default function ParticipantList() {
               <Participant
                 key={participant.sid}
                 participant={participant}
+                isLocalParticipant={false}
                 isSelected={participant === selectedParticipant}
                 onClick={() => setSelectedParticipant(participant)}
                 hideParticipant={hideParticipant}
