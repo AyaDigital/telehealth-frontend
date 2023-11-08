@@ -4,7 +4,6 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import { Button } from '@material-ui/core';
 import CallEndIcon from '../../../icons/CallEndIcon';
-import useKeycloakAuth from '../../../state/useKeycloakAuth/useKeycloakAuth';
 
 import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
 import { useAppState } from '../../../state';

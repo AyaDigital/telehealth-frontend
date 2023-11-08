@@ -3,16 +3,17 @@ import clsx from 'clsx';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import { Button } from '@material-ui/core';
+import CallEndIcon from '../../../icons/CallEndIcon';
 
 import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     button: {
-      background: theme.brand,
+      background: 'none',
       color: 'white',
       '&:hover': {
-        background: '#600101',
+        background: 'none',
       },
     },
   })
@@ -24,7 +25,7 @@ export default function EndCallButton(props: { className?: string }) {
 
   return (
     <Button onClick={() => room!.disconnect()} className={clsx(classes.button, props.className)} data-cy-disconnect>
-      Disconnect
+      <CallEndIcon />
     </Button>
   );
 }
