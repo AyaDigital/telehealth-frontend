@@ -7,6 +7,7 @@ import ToggleAudioButton from '../../components/Buttons/ToggleAudioButton/Toggle
 import ToggleVideoButton from '../../components/Buttons/ToggleVideoButton/ToggleVideoButton';
 import ToggleScreenShareButton from '../../components/Buttons/ToogleScreenShareButton/ToggleScreenShareButton';
 import ToggleSpeakerViewButton from '../../components/Buttons/ToggleSpeakerView/ToggleSpeakerView';
+import Timer from '../../components/Timer/Timer';
 import Menu from '../../components/MenuBar/Menu/MenuHeader';
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
 import { isMobile } from '../../utils';
@@ -70,6 +71,7 @@ export const Header: React.FC<HeaderProps> = () => {
                     {!isSharingScreen && <ToggleScreenShareButton disabled={isReconnecting} />}
                     {isSharingScreen && <Button onClick={() => toggleScreenShare()}>Stop Sharing</Button>}
                     <ToggleSpeakerViewButton disabled={isReconnecting} />
+                    <Timer />
                   </Grid>
                 </Grid>
               ) : null}
