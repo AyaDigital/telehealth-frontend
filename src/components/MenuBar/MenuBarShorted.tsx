@@ -150,11 +150,13 @@ export default function MenuBarShorted() {
         </div>
       </Modal>
       <footer className={classes.container}>
-        <Grid container className={classes.buttonStyle} justifyContent="space-around" alignItems="center">
-          <Button variant="outlined" onClick={openModal}>
-            Create prescription
-          </Button>
-        </Grid>
+        {isPractitioner ? (
+          <Grid container className={classes.buttonStyle} justifyContent="space-around" alignItems="center">
+            <Button variant="outlined" onClick={openModal}>
+              Create prescription
+            </Button>
+          </Grid>
+        ) : null}
         <Grid container justifyContent="space-around" alignItems="center" xs={12}>
           <Grid style={{ flex: 2 }}>
             <Grid container justifyContent="space-around">
